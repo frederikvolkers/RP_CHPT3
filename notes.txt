@@ -1,0 +1,18 @@
+The system itself (backend):
+Problem:
+    How do you calculate chest, waist, thigh size without a measuring tape. 
+        - HARD:
+        - Are there any anatomically mathematical formulas that could discard the tape?
+        - Can we use smartphone technology in some way that could do the measurements?
+        - EASY:
+        - Or should it be based on likelihood, with previous appeal preferences? 
+
+User: 
+    If the user already owns clothing they are happy with, then use that appeal as a reference. 
+    If not? Measuring Tape? 
+
+Admin: 
+    Need to provide information of the size grades for each size (xs, s, m, l, xl etc..)
+    Category of the appeal and its sub-category (e.g. category: cycling, sub-category: dirt)
+
+
