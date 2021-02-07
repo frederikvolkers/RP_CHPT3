@@ -1,3 +1,6 @@
+Product BackLog:
+https://docs.google.com/spreadsheets/d/1Zv_ItkDt9cSYRsCiaYMDgIkXQmfWrytebtxd2gA6BGc/edit?usp=sharing
+
 The system itself (backend):
 Problem:
     How do you calculate chest, waist, thigh size without a measuring tape. 
