@@ -19,3 +19,23 @@ Admin:
     Category of the appeal and its sub-category (e.g. category: cycling, sub-category: dirt)
 
 
+Meeting with Manikas:
+5-10 ways of already existing solutions. (ways of measuring, measuring tape, easysize etc..)
+
+Discover the architecture. If there is no academic litterature, then look at the technology itself. 
+
+We need to conduct experiments. The experiment will end in a validation. For example, the traditional way versus our application. The amount of time, and thoughts of the process etc. Such that we have empirical data. 
+
+Who owns the product. 
+
+Discover the startup.
+
+Can you make the measuring generic?
+
+How much machine learning is there? How much is low tech and how much is high tech? 
+
+How much data is needed? Incentive driven questions, the question seems irrational, 
+
+Experiement result: If very little machine learning, then try machine learning or AI. 
+
+By june: we know what is out there, and we have an idea of what we want to do.
