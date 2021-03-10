@@ -20,8 +20,12 @@ const App = () => {
           Hello Freddy. This is our initial skeleton - lets roll. I wrote this
           code in
           <code>src/App.js</code> check it out and play around if you want 🚀
+          Click the rocket to get as many spaceX rockets as you want!!
         </p>
-        <button style={style} onClick={() => setEmoji((Emoji += "🚀"))}>
+        <button
+          style={style}
+          onClick={() => setEmoji((currentEmoji) => (currentEmoji += "🚀"))}
+        >
           {Emoji}
         </button>
         <a
