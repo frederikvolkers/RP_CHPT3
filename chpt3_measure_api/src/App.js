@@ -1,7 +1,17 @@
 import logo from "./logo.svg";
 import "./App.css";
+import React, { useState } from "react";
 
-function App() {
+const App = () => {
+  var [Emoji, setEmoji] = useState("🚀");
+
+  const emojiGreeting = () => {
+    if (Emoji / 2 !== 0) {
+      <button>🚀 </button>;
+    } else {
+      return <button>🇩🇰 </button>;
+    }
+  };
   return (
     <div className="App">
       <header className="App-header">
@@ -11,6 +21,9 @@ function App() {
           code in
           <code>src/App.js</code> check it out and play around if you want 🚀
         </p>
+        <button style={style} onClick={() => setEmoji((Emoji += "🚀"))}>
+          {Emoji}
+        </button>
         <a
           className="App-link"
           href="https://reactjs.org"
@@ -22,6 +35,11 @@ function App() {
       </header>
     </div>
   );
-}
+};
+
+const style = {
+  backgroundColor: "#282c34",
+  fontSize: 200,
+};
 
 export default App;
