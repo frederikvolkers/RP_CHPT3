@@ -24,7 +24,7 @@ stages:
           vmImage: ubuntu-latest
         steps:
           - task: Docker@1
-            displayName: 'Build an docker image' 
+            displayName: 'Build an docker image'
             inputs:
               containerregistrytype: 'Container Registry'
               dockerRegistryEndpoint: 'Docker Hub'
@@ -42,16 +42,3 @@ stages:
               command: 'Push an image'
               imageName: '$(ImageName)'
             condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
-
-          # - task: Docker@2
-          #   displayName: Build and push an image to container registry
-          #   inputs:
-          #     containerregistrytype: 'Container Registry'
-          #     dockerRegistryEndpoint: 'Docker hub'
-          #     command: buildAndPush
-          #     dockerfile: $(dockerfilePath)
-          #     imageName: '$(ImageName)'
-          #     includeLatestTag: true
-          #     useDefaultContext: false
-          #     buildContext: '.'
-          #   condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
