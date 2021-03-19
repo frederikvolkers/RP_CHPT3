@@ -10,14 +10,9 @@ resources:
 
 variables:
   # Container registry service connection established during pipeline creation
-  dockerRegistryServiceConnection: '09d3f59e-1f0d-4f29-80c6-a0b54051855c'
-  imageRepository: 'frederikvolkerschpt3buildbuildid'
-  containerRegistry: 'chpt3.azurecr.io'
   dockerfilePath: '$(Build.SourcesDirectory)/sizeapp/Dockerfile'
   tag: '$(Build.BuildId)'
-
-  # Agent VM image name
-  vmImageName: 'ubuntu-latest'
+  ImageName: 'frederikvolkers/chpt3:$(Build.BuildId)'
 
 stages:
 - stage: Build
@@ -26,14 +21,18 @@ stages:
   - job: Build
     displayName: Build
     pool:
-      vmImage: $(vmImageName)
+      vmImage: ubuntu-latest
     steps:
     - task: Docker@2
       displayName: Build and push an image to container registry
       inputs:
+        containerregistrytype: "Container Registry"
+        dockerRegistryEndpoint: "Docker hub"
         command: buildAndPush
-        repository: $(imageRepository)
         dockerfile: $(dockerfilePath)
+        imageName: '$(ImageName)'
+        includeLatestTag: true
+        useDefaultContext: false
+        buildContext: '.'
         containerRegistry: $(dockerRegistryServiceConnection)
-        tags: |
-          $(tag)
+      condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
