@@ -13,7 +13,7 @@ variables:
   dockerRegistryServiceConnection: '09d3f59e-1f0d-4f29-80c6-a0b54051855c'
   imageRepository: 'frederikvolkerschpt3buildbuildid'
   containerRegistry: 'chpt3.azurecr.io'
-  dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
+  dockerfilePath: '$(Build.SourcesDirectory)/sizeapp/Dockerfile'
   tag: '$(Build.BuildId)'
 
   # Agent VM image name
