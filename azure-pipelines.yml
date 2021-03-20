@@ -10,13 +10,12 @@ resources:
 
 variables:
   # Container registry service connection established during pipeline creation
-  dockerfilePath: '$(Build.SourcesDirectory)/sizeapp/Dockerfile'
   tag: '$(Build.BuildId)'
   ImageName: 'frederikvolkers/chpt3:$(Build.BuildId)'
 
 stages:
   - stage: Build
-    displayName: Build and push stage
+    displayName: Build image
     jobs:
       - job: Build
         displayName: Build
