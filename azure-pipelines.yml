@@ -11,7 +11,7 @@ resources:
 variables:
   # Container registry service connection established during pipeline creation
   tag: '$(Build.BuildId)'
-  ImageName: 'frederikvolkers/chpt3:$(Build.BuildId)'
+  imageName: 'frederikvolkers/chpt3:$(Build.BuildId)'
 
 stages:
   - stage: Build
@@ -22,22 +22,17 @@ stages:
         pool:
           vmImage: ubuntu-latest
         steps:
-          - task: Docker@1
-            displayName: 'Build an docker image'
+          - task: Docker@2
+            displayName: Build an image
             inputs:
-              containerregistrytype: 'Container Registry'
-              dockerRegistryEndpoint: 'Docker Hub'
-              command: 'Build an image'
+              repository: $(imageName)
+              command: build
               dockerfile: '$(Build.SourcesDirectory)/sizeapp/Dockerfile'
-              imageName: '$(ImageName)'
-              includeLatestTag: true
-              useDefaultContext: false
               buildContext: '.'
-          - task: Docker@1
-            displayName: 'Push the Docker image to Dockerhub'
+          - task: Docker@2
+            displayName: Push an image to container registry
             inputs:
-              containerregistrytype: 'Container Registry'
-              dockerRegistryEndpoint: 'Docker Hub'
-              command: 'Push an image'
-              imageName: '$(ImageName)'
+              command: push
+              repository: $(imageName)
+              containerRegistry: $(dockerRegistryServiceConnection)
             condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
