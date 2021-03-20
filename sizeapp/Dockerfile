@@ -2,7 +2,7 @@
 #In Stage 1, we are copying our app code in the “app” folder and installing app dependencies from package.json file and creating production build using Node image.
 FROM node:latest
 
-RUN mkdir /app
+#RUN mkdir /app
 # set working directory
 WORKDIR /app
 #ADD . /app
@@ -11,12 +11,12 @@ WORKDIR /app
 #ENV PATH /app/node_modules/.bin:$PATH
 
 # install app dependencies
-COPY "package.json" /app
-COPY "package-lock.json" /app
+COPY "package.json" .
+COPY "package-lock.json" .
 RUN npm install
 
 # add app
-COPY . /app
+COPY . .
 
 RUN npm run build
 
