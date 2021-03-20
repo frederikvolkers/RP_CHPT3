@@ -1,6 +1,4 @@
 # Docker
-# Build and push an image to Azure Container Registry
-# https://docs.microsoft.com/azure/devops/pipelines/languages/docker
 
 trigger:
   - main
@@ -28,7 +26,7 @@ stages:
               containerregistrytype: 'Container Registry'
               dockerRegistryEndpoint: 'chpt3DockerHub'
               command: 'Build an image'
-              Dockerfile: "$(Build.SourcesDirectory)/sizeapp/Dockerfile"
+              dockerfile: "$(Build.SourcesDirectory)/sizeapp/Dockerfile"
               imageName: '$(ImageName)'
               includeLatestTag: true
               useDefaultContext: false
