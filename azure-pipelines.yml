@@ -10,7 +10,7 @@ resources:
 
 variables:
   # Container registry service connection established during pipeline creation
-  dockerfilePath: '**/sizeapp/Dockerfile'
+  dockerfile: '**/sizeapp/Dockerfile'
   tag: '$(Build.BuildId)'
   ImageName: 'frederikvolkers/chpt3:$(Build.BuildId)'
 
@@ -29,7 +29,7 @@ stages:
               containerregistrytype: 'Container Registry'
               dockerRegistryEndpoint: 'chpt3DockerHub'
               command: 'Build an image'
-              dockerfile: '$(Build.SourcesDirectory)/sizeapp/Dockerfile'
+              dockerFile: '$(Build.SourcesDirectory)/sizeapp/Dockerfile'
               imageName: '$(ImageName)'
               includeLatestTag: true
               useDefaultContext: false
