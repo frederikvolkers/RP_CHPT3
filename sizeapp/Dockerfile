@@ -22,9 +22,9 @@ RUN npm run build
 
 #stage 2
 #In the Stage 2, we are using nginx server image to create nginx server and deploy our app on it by copying build items from */app/build* folder to nginx server at */usr/share/nginx/html* location.
-FROM nginx:latest
+#FROM nginx:1.17.1-alpine
 
-COPY --from=build-step /app/build /usr/share/nginx/html
+#COPY --from=build-step /app/build /usr/share/nginx/html
 
 EXPOSE 3000
 
