@@ -25,6 +25,8 @@ stages:
           - task: Docker@2
             displayName: Build an image
             inputs:
+              containerRegistry: |
+                $(dockerHub)
               repository: $(imageName)
               command: build
               dockerfile: '$(Build.SourcesDirectory)/sizeapp/Dockerfile'
@@ -32,7 +34,9 @@ stages:
           - task: Docker@2
             displayName: Push an image to container registry
             inputs:
-              command: push
+              containerRegistry: |
+                $(dockerHub)
               repository: $(imageName)
-              containerRegistry: $(dockerRegistryServiceConnection)
+              command: push
+
             condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
