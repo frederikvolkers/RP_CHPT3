@@ -28,7 +28,7 @@ stages:
               containerregistrytype: 'Container Registry'
               dockerRegistryEndpoint: 'chpt3DockerHub'
               command: 'Build an image'
-              dockerFile: "**/Dockerfile"
+              Dockerfile: "$(Build.SourcesDirectory)/sizeapp/Dockerfile"
               imageName: '$(ImageName)'
               includeLatestTag: true
               useDefaultContext: false
