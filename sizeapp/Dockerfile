@@ -8,17 +8,17 @@ WORKDIR /app
 #ADD . /app
 
 # add `/app/node_modules/.bin` to $PATH
-#ENV PATH /app/node_modules/.bin:$PATH
+ENV PATH /app/node_modules/.bin:$PATH
 
 # install app dependencies
-COPY "package.json" .
-COPY "package-lock.json" .
+COPY "package.json" ./
+COPY "package-lock.json" ./
 RUN npm install
 
 # add app
 COPY . .
 
-RUN npm run build
+#RUN npm run build
 
 #stage 2
 #In the Stage 2, we are using nginx server image to create nginx server and deploy our app on it by copying build items from */app/build* folder to nginx server at */usr/share/nginx/html* location.
@@ -26,7 +26,7 @@ RUN npm run build
 
 #COPY --from=build-step /app/build /usr/share/nginx/html
 
-EXPOSE 3000
+#EXPOSE 3000
 
 # start app
 CMD ["npm", "start"]
