@@ -15,7 +15,7 @@ variables:
 
 stages:
   - stage: Build
-    displayName: Build and push stage
+    displayName: Build image
     jobs:
       - job: Build
         displayName: Build
@@ -28,7 +28,7 @@ stages:
               containerregistrytype: 'Container Registry'
               dockerRegistryEndpoint: 'chpt3DockerHub'
               command: 'Build an image'
-              dockerFile: "$(Build.SourcesDirectory)/sizeapp/Dockerfile"
+              dockerFile: "**/Dockerfile"
               imageName: '$(ImageName)'
               includeLatestTag: true
               useDefaultContext: false
