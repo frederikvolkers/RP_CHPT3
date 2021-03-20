@@ -1,6 +1,6 @@
 # pull official base image
 #In Stage 1, we are copying our app code in the “app” folder and installing app dependencies from package.json file and creating production build using Node image.
-FROM node:latest
+FROM node:alpine
 
 #RUN mkdir /app
 # set working directory
@@ -16,7 +16,7 @@ COPY "package-lock.json" ./
 RUN npm install
 
 # add app
-COPY . .
+COPY . ./
 
 #RUN npm run build
 
